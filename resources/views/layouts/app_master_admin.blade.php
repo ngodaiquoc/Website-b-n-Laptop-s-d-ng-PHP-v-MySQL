@@ -157,7 +157,7 @@
         <!-- /.content-wrapper -->
         <footer class="main-footer">
 
-            <strong>Đồ án tốt nghiệp - 2022</strong>
+            <strong>Đồ án tốt nghiệp - 2023</strong>
         </footer>
         <div class="control-sidebar-bg"></div>
     </div>

@@ -57,7 +57,7 @@
                                             <td>{{ (($products->currentPage() - 1) * $products->perPage()) + ( $key + 1)  }}</td>
                                             {{--<td>{{ $product->id }}</td>--}}
                                             <td>
-                                                <a href="" target="_blank">{{ $product->pro_name }}</a>
+                                                <a href="{{ route('get.product.detail',$product->pro_slug . '-'.$product->id ) }}" target="_blank">{{ $product->pro_name }}</a>
                                             </td>
                                             <td>
                                                 <span class="label label-success">{{ $product->category->c_name ?? "[N\A]" }}</span>

@@ -25,6 +25,7 @@
                                     <th>Tên</th>
                                     <th>Email</th>
                                     <th>Điện thoại</th>
+                                    <th>Thời gian tạo</th>
                                     <th>Hành động</th>
                                 </tr>
                                 @if (isset($users))
@@ -35,6 +36,7 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
+                                            <td>{{ $user->created_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.user.transaction', $user->id) }}" class="btn btn-xs btn-primary js-show-transaction"> Xem thông tin </a>
                                                 <a href="{{  route('admin.user.delete', $user->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Xóa</a>

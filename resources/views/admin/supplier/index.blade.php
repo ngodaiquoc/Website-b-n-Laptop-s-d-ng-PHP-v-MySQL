@@ -20,15 +20,13 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Tên</th>
                                     <th>Email</th>
                                     <th>SDT</th>
-                                    <th>Thời gian tạo</th>
                                     <th>Hành động</th>
                                 </tr>
                             </tbody>
@@ -36,11 +34,9 @@
                                     @foreach($supplieres as  $key => $item)
                                         <tr>
                                             <td>{{ ($key + 1) }}</td>
-                                            {{--<td>{{ $item->id }}</td>--}}
                                             <td>{{ $item->sl_name }}</td>
                                             <td>{{ $item->sl_email }}</td>
                                             <td>{{ $item->sl_phone }}</td>
-                                            <td>{{  $item->created_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.ncc.update', $item->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Sửa</a>
                                                 <a href="{{  route('admin.ncc.delete', $item->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Xóa</a>

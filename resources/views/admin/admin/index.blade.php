@@ -20,16 +20,14 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>SDT</th>
                                     <th>Level</th>
-                                    <th>Time</th>
                                     <th>Action</th>
                                 </tr>
                             </tbody>
@@ -37,7 +35,6 @@
                                     @foreach($admins as $key => $admin)
                                         <tr>
                                             <td>{{ ($key + 1) }}</td>
-                                            {{--<td>{{ $admin->id }}</td>--}}
                                             <td>{{ $admin->name }}</td>
                                             <td>{{ $admin->email }}</td>
                                             <td>{{ $admin->phone }}</td>
@@ -48,7 +45,6 @@
                                                     <span class="label label-default">Nhân viên</span>
                                                 @endif
                                             </td>
-                                            <td>{{  $admin->created_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.account_admin.update', $admin->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a>
                                                 <a href="{{  route('admin.account_admin.delete', $admin->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Delete</a>

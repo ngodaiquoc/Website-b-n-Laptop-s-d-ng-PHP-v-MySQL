@@ -16,23 +16,21 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
-                                    <th>Name</th>
+                                    <th>Họ tên</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Content</th>
-                                    <th>Time</th>
-                                    <th>Action</th>
+                                    <th>Nội dung</th>
+                                    <th>Thời gian</th>
+                                    <th>Hành động</th>
                                 </tr>
                                 @if (isset($contacts))
                                     @foreach($contacts as $key => $item)
                                         <tr>
                                             <td>{{ (($contacts->currentPage() - 1) * $contacts->perPage()) + ( $key + 1)  }}</td>
-                                            {{--<td>{{ $item->id }}</td>--}}
                                             <td>{{ $item->c_title }}</td>
                                             <td>{{ $item->c_email }}</td>
                                             <td>{{ $item->c_phone }}</td>

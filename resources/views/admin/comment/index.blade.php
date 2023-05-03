@@ -25,7 +25,7 @@
                 <div class="box-body">
                     <div class="col-md-12">
                         @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                             <tr>
                                 <th style="width: 10px">STT</th>

@@ -35,11 +35,10 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        <p> Tổng số lượng sản phẩm <b>{{ $sumNumber }}</b></p>
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Tên</th>
                                     <th>Danh mục</th>
                                     <th>Ảnh</th>
@@ -54,18 +53,17 @@
                             @if (isset($products))
                                     @foreach($products as $key => $product)
                                         <tr>
-                                            <td>{{ (($products->currentPage() - 1) * $products->perPage()) + ( $key + 1)  }}</td>
-                                            {{--<td>{{ $product->id }}</td>--}}
-                                            <td>
+                                            <td style="vertical-align: middle">{{ (($products->currentPage() - 1) * $products->perPage()) + ( $key + 1)  }}</td>
+                                            <td style="vertical-align: middle">
                                                 <a href="{{ route('get.product.detail',$product->pro_slug . '-'.$product->id ) }}" target="_blank">{{ $product->pro_name }}</a>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 <span class="label label-success">{{ $product->category->c_name ?? "[N\A]" }}</span>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 <img src="{{ pare_url_file($product->pro_avatar) }}" style="width: 80px;height: 100px">
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 <ul style="margin-left: 0;padding-left: 0">
                                                     <li>Số lượng nhập <b>{{ $product->pro_number_import }}</b></li>
                                                     <li>
@@ -78,7 +76,7 @@
                                                 </ul>
 
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 @if ($product->pro_sale)
                                                     <span style="text-decoration: line-through;">{{ number_format($product->pro_price,0,',','.') }} vnđ</span><br>
                                                     <!-- @php 
@@ -90,14 +88,14 @@
                                                 @endif
                                                 
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 @if ($product->pro_hot == 1)
                                                     <a href="{{ route('admin.product.hot', $product->id) }}" class="label label-info">Có</a>
                                                 @else 
                                                     <a href="{{ route('admin.product.hot', $product->id) }}" class="label label-default">Không</a>
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 @if ($product->pro_active == 1)
                                                     <a href="{{ route('admin.product.active', $product->id) }}" class="label label-info">Hoạt động</a>
                                                 @else 
@@ -105,7 +103,7 @@
                                                 @endif
                                             </td>
 
-                                            <td style="width: 160px;">
+                                            <td style="vertical-align: middle">
                                                 <a href="{{ route('admin.product.update', $product->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Sửa</a>
                                                 <a href="{{  route('admin.product.delete', $product->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Xóa</a>
                                             </td>

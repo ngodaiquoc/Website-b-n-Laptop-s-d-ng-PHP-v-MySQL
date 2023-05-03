@@ -39,7 +39,6 @@
 						<tbody>
 							<tr>
 								<th style="width: 10px">STT</th>
-								<th style="width: 10px">ID</th>
 								<th style="width: 10%">Tên</th>
 								<th>Danh mục</th>
 								<th>Ảnh</th>
@@ -54,7 +53,6 @@
 						@foreach($products as $key => $product)
 						<tr>
 							<td>{{ (($products->currentPage() - 1) * $products->perPage()) + ( $key + 1)  }}</td>
-							<td>{{ $product->id }}</td>
 							<td>
 								<a href="{{ route('get.product.detail',$product->pro_slug . '-'.$product->id ) }}" target="_blank">{{ $product->pro_name }}</a>
 							</td>

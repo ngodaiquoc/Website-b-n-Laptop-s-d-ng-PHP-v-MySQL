@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group ">
                     <label for="exampleInputEmail1">Mô tả</label>
-                    <textarea name="pro_description" id="description" class="form-control" cols="5" rows="2" autocomplete="off">{{  $product->pro_description ?? old('pro_description') }}</textarea>
+                    <textarea name="pro_description" class="form-control" cols="5" rows="2" autocomplete="off">{{  $product->pro_description ?? old('pro_description') }}</textarea>
                     @if ($errors->first('pro_description'))
                         <span class="text-danger">{{ $errors->first('pro_description') }}</span>
                     @endif
@@ -81,22 +81,22 @@
             <!-- <div class="box-header with-border">
                 <h3 class="box-title">Thuộc tính</h3>
             </div> -->
-            <div class="box-body">
-                @foreach($attributes  as $key => $attribute)
-                    <div class="form-group col-sm-3">
-                        <h4 style="border-bottom: 1px solid #dedede;padding-bottom: 10px;">{{ $key }}</h4>
-                        @foreach($attribute as $item)
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="attribute[]" {{ in_array($item['id'], $attributeOld ) ? "checked"  : '' }}
-                                value="{{ $item['id'] }}"> {{ $item['atb_name'] }}
-                            </label>
-                         </div>
-                         @endforeach
-                    </div>
-                @endforeach
-            </div>
-            <hr>
+            {{--<div class="box-body">--}}
+                {{--@foreach($attributes  as $key => $attribute)--}}
+                    {{--<div class="form-group col-sm-3">--}}
+                        {{--<h4 style="border-bottom: 1px solid #dedede;padding-bottom: 10px;">{{ $key }}</h4>--}}
+                        {{--@foreach($attribute as $item)--}}
+                        {{--<div class="checkbox">--}}
+                            {{--<label>--}}
+                                {{--<input type="checkbox" name="attribute[]" {{ in_array($item['id'], $attributeOld ) ? "checked"  : '' }}--}}
+                                {{--value="{{ $item['id'] }}"> {{ $item['atb_name'] }}--}}
+                            {{--</label>--}}
+                         {{--</div>--}}
+                         {{--@endforeach--}}
+                    {{--</div>--}}
+                {{--@endforeach--}}
+            {{--</div>--}}
+            {{--<hr>--}}
 {{--            <div class="box-header with-border">--}}
 {{--                <h3 class="box-title">Album ảnh</h3>--}}
 {{--            </div>--}}
@@ -126,7 +126,7 @@
             <div class="box-body">
                 <div class="form-group " id="time">
                     <!-- <label for="exampleInputEmail1">Content</label> -->
-                    <textarea name="pro_content" id="content" class="form-control textarea" required="" cols="5" rows="2" >{{ $product->pro_content ?? old('pro_content') }}</textarea>
+                    <textarea name="pro_content" id="content" class="form-control textarea" required="" cols="5" rows="2" >{{ $product->pro_content ?? '' }}</textarea>
                     @if ($errors->first('pro_content'))
                         <span class="text-danger">{{ $errors->first('pro_content') }}</span>
                     @endif
@@ -165,6 +165,5 @@
     };
 
     CKEDITOR.replace('content' ,options);
-    CKEDITOR.replace('description' ,options);
 </script>
 

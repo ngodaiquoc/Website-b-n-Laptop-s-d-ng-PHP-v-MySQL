@@ -17,28 +17,24 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">Stt</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Tên</th>
                                     <th>Email</th>
                                     <th>Điện thoại</th>
-                                    <th>Thời gian tạo</th>
                                     <th>Hành động</th>
                                 </tr>
                                 @if (isset($users))
                                     @foreach($users as $key => $user)
                                         <tr>
                                             <td>{{ ($key + 1) }}</td>
-                                            {{--<td>{{ $user->id }}</td>--}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->created_at }}</td>
                                             <td>
-                                                <a href="{{ route('admin.user.transaction', $user->id) }}" class="btn btn-xs btn-primary js-show-transaction"> Xem thông tin </a>
+                                                <a href="{{ route('admin.user.transaction', $user->id) }}" class="btn btn-xs btn-primary js-show-transaction"> Nợ cần thu</a>
                                                 <a href="{{  route('admin.user.delete', $user->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Xóa</a>
                                             </td>
                                         </tr>

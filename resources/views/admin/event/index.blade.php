@@ -20,29 +20,25 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Name</th>
                                     <th>Link</th>
-                                    <th>Banner</th>
-                                    <th>Time</th>
-                                    <th>Action</th>
+                                    <th>Ảnh</th>
+                                    <th style="vertical-align: middle; width: 20%">Hành động</th>
                                 </tr>
                                 @if (isset($events))
                                     @foreach($events as $key => $event)
                                         <tr>
-                                            <td>{{ ( $key + 1 ) }}</td>
-                                            {{--<td>{{ $event->id }}</td>--}}
-                                            <td>{{ $event->e_name }}</td>
-                                            <td>{{ $event->e_link }}</td>
-                                            <td>
+                                            <td style="vertical-align: middle">{{ ( $key + 1 ) }}</td>
+                                            <td style="vertical-align: middle">{{ $event->e_name }}</td>
+                                            <td style="vertical-align: middle">{{ $event->e_link }}</td>
+                                            <td style="vertical-align: middle">
                                                 <img src="{{ pare_url_file($event->e_banner) }}" style="width: 100px;height: 40px">
                                             </td>
-                                            <td>{{  $event->created_at }}</td>
-                                            <td style="width: 135px;">
+                                            <td style="vertical-align: middle; width: 20%">
                                                 <a href="{{ route('admin.event.update', $event->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a>
                                                 <a href="{{  route('admin.event.delete', $event->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Delete</a>
                                             </td>

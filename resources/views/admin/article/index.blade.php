@@ -20,17 +20,15 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th style="width: 25%">Tên</th>
                                     <th>Danh mục</th>
                                     <th>Ảnh</th>
                                     <th>Hot</th>
                                     <th>Tình trạng</th>
-                                    <th>Thời gian tạo</th>
                                     <th>Hành động</th>
                                 </tr>
 
@@ -40,7 +38,6 @@
                                     @foreach($articles as $key => $article)
                                         <tr>
                                             <td>{{ (($articles->currentPage() - 1) * $articles->perPage()) + ( $key + 1)  }}</td>
-                                            {{--<td>{{ $article->id }}</td>--}}
                                             <td>{{ $article->a_name }}</td>
                                             <td>
                                                 <span class="label label-success">{{ $article->menu->mn_name ?? "[N\A]" }}</span>
@@ -63,7 +60,6 @@
                                                     <a href="{{ route('admin.article.active', $article->id) }}" class="label label-default">Ẩn</a>
                                                 @endif
                                             </td>
-                                            <td>{{  $article->created_at }}</td>
                                             <td style="width: 120px">
                                                 <a href="{{ route('admin.article.update', $article->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Sửa</a>
                                                 <a href="{{  route('admin.article.delete', $article->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Xóa</a>

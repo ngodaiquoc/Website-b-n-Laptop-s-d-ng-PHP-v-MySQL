@@ -20,14 +20,13 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Kiểu</th>
                                     <th>Danh mục</th>
-                                    <th>Thời gian thêm</th>
                                     <th>Hành động</th>
                                 </tr>
                                 @if (isset($attibutes))
@@ -42,7 +41,6 @@
                                             <td>
                                                 <span class="label label-info">{{ $attribute->category->c_name ?? "[N\A]" }}</span>
                                             </td>
-                                            <td>{{  $attribute->created_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.attribute.update', $attribute->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Sửa</a>
                                                 <a href="{{  route('admin.attribute.delete', $attribute->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Xóa</a>

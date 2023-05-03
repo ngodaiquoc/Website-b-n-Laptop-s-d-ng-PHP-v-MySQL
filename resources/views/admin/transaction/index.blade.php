@@ -40,24 +40,22 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
-                                    <th style="width: 30%">Info</th>
-                                    <th>Money</th>
-                                    <th>Account</th>
-                                    <th>Type</th>
-                                    <th>Status</th>
-                                    <th>Time</th>
-                                    <th>Action</th>
+                                    <th style="width: 30%">Thông tin</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Phương thức thanh toán</th>
+                                    <th>Tài khoản</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thời gian</th>
+                                    <th>Hành động</th>
                                 </tr>
                                 @if (isset($transactions))
                                     @foreach($transactions as $key => $transaction)
                                         <tr>
                                             <td>{{ (($transactions->currentPage() - 1) * $transactions->perPage()) + ( $key + 1)  }}</td>
-                                            {{--<td>{{ $transaction->id }}</td>--}}
                                             <td>
                                                 <ul>
                                                     <li>Name: {{ $transaction->tst_name }}</li>
@@ -68,15 +66,25 @@
                                             </td>
                                             <td>{{ number_format($transaction->tst_total_money,0,',','.') }} đ</td>
                                             <td>
+                                                @if ($transaction->payment)
+                                                    <ul>
+                                                        <li>Bank: {{ $transaction->payment->p_code_bank }}</li>
+                                                        <li>Code: {{ $transaction->p_code_vnpay }}</li>
+                                                        <li>Total amount:  {{ number_format($transaction->tst_total_money,0,',','.') }} đ</li>
+                                                        <li>Note: {{ $transaction->payment->p_note }}</li>
+                                                        <li>Time: {{ date('Y-m-d H:i', strtotime($transaction->payment->p_time)) }}</li>
+
+                                                    </ul>
+                                                @else
+                                                    Thanh toán trực tiếp
+                                                @endif
+                                            </td>
+                                            <td>
                                                 @if ($transaction->tst_user_id)
                                                     <span class="label label-success">Thành viên</span>
                                                 @else
                                                     <span class="label label-default">Khách</span>
                                                 @endif
-                                            </td>
-                                            <td>
-                                                <span class="label label-{{ $transaction->getType($transaction->tst_type)['class'] }}">
-                                                    {{ $transaction->getType($transaction->tst_type)['name'] }}</span>
                                             </td>
                                             <td>
                                                 <span class="label label-{{ $transaction->getStatus($transaction->tst_status)['class'] }}">

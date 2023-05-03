@@ -31,7 +31,7 @@
                                     <!-- <th>SL còn</th> -->
                                     <th>Đã thanh toán</th>
                                     <th>Dư nợ</th>
-                                    <th>Action</th>
+                                    <th>Hành động</th>
                                 </tr>
                             </tbody>
                             @if (isset($invoiceEntered))

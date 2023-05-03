@@ -20,44 +20,40 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Tên</th>
                                     <th>Ảnh</th>
                                     <th>Tình trạng</th>
                                     <th>Hot</th>
-                                    <th>Thời gian thêm</th>
                                     <th>Hành động</th>
                                 </tr>
                                 @if ($categories)
                                     @foreach($categories as $key => $category)
                                         <tr>
-                                            <td>{{ (($categories->currentPage() - 1) * $categories->perPage()) + ( $key + 1)  }}</td>
-                                            {{--<td>{{ $category->id }}</td>--}}
-                                            <td>{{ $category->c_name }}</td>
-                                            <td>
+                                            <td style="vertical-align: middle">{{ (($categories->currentPage() - 1) * $categories->perPage()) + ( $key + 1)  }}</td>
+                                            <td style="vertical-align: middle">{{ $category->c_name }}</td>
+                                            <td style="vertical-align: middle">
                                                 <img src="{{ pare_url_file($category->c_avatar ?? '') ?? '/images/no-image.jpg' }}" onerror="this.onerror=null;this.src='/images/no-image.jpg';"
                                                      alt="" class="img-thumbnail" style="width: 80px;height: 80px;">
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 @if ($category->c_status == 1)
                                                     <a href="{{ route('admin.category.active', $category->id) }}" class="label label-info">Hiện</a>
                                                 @else
                                                     <a href="{{ route('admin.category.active', $category->id) }}" class="label label-default">Ẩn</a>
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 @if ($category->c_hot == 1)
                                                     <a href="{{ route('admin.category.hot', $category->id) }}" class="label label-info">Có</a>
                                                 @else
                                                     <a href="{{ route('admin.category.hot', $category->id) }}" class="label label-default">Không</a>
                                                 @endif
                                             </td>
-                                            <td>{{  $category->created_at }}</td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 <a href="{{ route('admin.category.update', $category->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Sửa</a>
                                                 <a href="{{  route('admin.category.delete', $category->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Xóa</a>
                                             </td>

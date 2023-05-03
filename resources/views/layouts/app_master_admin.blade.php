@@ -35,7 +35,7 @@
     <div class="wrapper">
         <header class="main-header" >
             <!-- Logo -->
-            <a href="/" class="logo" style="background-color: #489861">
+            <a href="{{ route('admin.statistical') }}" class="logo" style="background-color: #489861">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>N</b>.Ân</span>
                 <!-- logo for regular state and mobile devices -->
@@ -167,7 +167,7 @@
         <!-- /.content-wrapper -->
         <footer class="main-footer">
 
-            <strong>Đồ án tốt nghiệp - 2022</strong>
+            <strong>Đồ án tốt nghiệp - {{date('Y')}}</strong>
         </footer>
         <div class="control-sidebar-bg"></div>
     </div>

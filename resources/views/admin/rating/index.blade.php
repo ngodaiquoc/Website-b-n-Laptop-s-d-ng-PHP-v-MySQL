@@ -24,11 +24,10 @@
             <div class="box-header with-border">
                 <div class="box-body">
                    <div class="col-md-12">
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Tên</th>
                                     <th> Tài khoản </th>
                                     <th>Đánh giá</th>
@@ -39,7 +38,6 @@
                                     @foreach($ratings as $key => $rating)
                                         <tr>
                                             <td>{{ (($ratings->currentPage() - 1) * $ratings->perPage()) + ( $key + 1)  }}</td>
-                                            {{--<td>{{ $rating->id }}</td>--}}
                                             <td>{{ $rating->product->pro_name ?? "[N\A]" }}</td>
                                             <td>{{ $rating->user->name ?? "[N\A]" }}</td>
                                             <td>

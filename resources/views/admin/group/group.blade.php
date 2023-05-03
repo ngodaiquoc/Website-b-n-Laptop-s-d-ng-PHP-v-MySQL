@@ -24,7 +24,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
+                                    <th style="width: 10px">ID</th>
                                     <th>Tên</th>
                                     <th>Thời gian thêm</th>
                                     <th>Hành động</th>
@@ -33,7 +33,7 @@
                                     @foreach($categories as $key => $category)
                                         <tr>
                                             <td>{{ (($categories->currentPage() - 1) * $categories->perPage()) + ( $key + 1)  }}</td>
-                                            {{--<td>{{ $category->id }}</td>--}}
+                                            <td>{{ $category->id }}</td>
                                             <td>{{ $category->name }}</td>
                                             <td>{{  $category->created_at }}</td>
                                             <td>

@@ -20,24 +20,20 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Time</th>
-                                    <th>Action</th>
+                                    <th>Tên</th>
+                                    <th>Kiểu</th>
+                                    <th>Hành động</th>
                                 </tr>
                                 @if (isset($statics))
                                     @foreach($statics as $key => $static)
                                         <tr>
                                             <td>{{ ($key + 1) }}</td>
-                                            {{--<td>{{ $static->id }}</td>--}}
                                             <td>{{ $static->s_title }}</td>
                                             <td>{{ $static->getType($static->s_type) }}</td>
-                                            <td>{{  $static->created_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.static.update', $static->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a>
                                                 <a href="{{  route('admin.static.delete', $static->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Delete</a>

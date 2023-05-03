@@ -20,23 +20,20 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
-                                    <th>Name</th>
-                                    <th>Status</th>
-                                    <th>Sort</th>
+                                    <th>Tên</th>
+                                    <th>Trạng thái</th>
+                                    <th>Vị trí</th>
                                     <th>Target</th>
-                                    <th>Time</th>
-                                    <th>Action</th>
+                                    <th width="20%">Hành động</th>
                                 </tr>
                                 @if (isset($slides))
                                     @foreach($slides as $key => $slide)
                                         <tr>
                                             <td>{{ ($key + 1) }}</td>
-                                            {{--<td>{{ $slide->id }}</td>--}}
                                             <td>{{ $slide->sd_title }}</td>
                                             <td>
                                                 @if ($slide->sd_active == 1)
@@ -46,8 +43,7 @@
                                                 @endif
                                             </td>
                                             <td>{{  $slide->sd_sort }}</td>
-                                            <td>{{  $slide->sd_target }}</td>
-                                            <td>{{  $slide->created_at }}</td>
+                                            <td>{{  isset($target[$slide->sd_target]) ? $target[$slide->sd_target] : '' }}</td>
                                             <td>
                                                 <a href="{{ route('admin.slide.update', $slide->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a>
                                                 <a href="{{  route('admin.slide.delete', $slide->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Delete</a>
@@ -66,6 +62,7 @@
                 <!-- /.box-footer-->
             </div>
             <!-- /.box -->
+        </div>
     </section>
     <!-- /.content -->
 @stop

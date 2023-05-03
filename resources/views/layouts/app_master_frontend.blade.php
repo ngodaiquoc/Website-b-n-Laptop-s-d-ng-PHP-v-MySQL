@@ -30,3 +30,17 @@
         @yield('script')
     </body>
 </html>
+<script src="{{ asset('admin/bower_components/jquery/dist/jquery.js') }}"></script>
+<script>
+    $(function () {
+        $(".js-menu-cate-new").mouseenter(function(){
+            var display = $("#menu-main").css('display');
+
+            if (display == 'block') {
+                $("#menu-main").css('display', 'none');
+            } else {
+                $("#menu-main").show();
+            }
+        })
+    })
+</script>

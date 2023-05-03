@@ -20,22 +20,20 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Hot</th>
                                     <th>Time</th>
-                                    <th>Action</th>
+                                    <th>Hành động</th>
                                 </tr>
                                 @if (isset($keywords))
                                     @foreach($keywords as $key => $keyword)
                                         <tr>
                                             <td>{{ (($keywords->currentPage() - 1) * $keywords->perPage()) + ( $key + 1)  }}</td>
-                                            {{--<td>{{ $keyword->id }}</td>--}}
                                             <td>{{ $keyword->k_name }}</td>
                                             <td>{{ $keyword->k_description }}</td>
                                             <td>

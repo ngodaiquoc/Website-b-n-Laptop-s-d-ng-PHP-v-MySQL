@@ -20,43 +20,39 @@
                 <div class="box-body">
                    <div class="col-md-12">
                        @include('components.int_message')
-                        <table class="table">
+                        <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">Stt</th>
-                                    {{--<th style="width: 10px">ID</th>--}}
                                     <th>Tên</th>
                                     <th>Ảnh</th>
                                     <th>Tình trạng</th>
                                     <th>Hot</th>
-                                    <th>Thời gian</th>
                                     <th>Hành động</th>
                                 </tr>
                                 @if ($menus)
                                     @foreach($menus as $key => $menu)
                                         <tr>
-                                            <td>{{ ($key + 1)}}</td>
-                                            <td>{{ $menu->id }}</td>
-                                            <td>{{ $menu->mn_name }}</td>
-                                            <td>
+                                            <td style="vertical-align: middle">{{ ($key + 1)}}</td>
+                                            <td style="vertical-align: middle">{{ $menu->mn_name }}</td>
+                                            <td style="vertical-align: middle">
                                                 <img src="{{ pare_url_file($menu->mn_avatar) }}" style="width: 80px;height: 80px;">
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 @if ($menu->mn_status == 1)
                                                     <a href="{{ route('admin.menu.active', $menu->id) }}" class="label label-info">Hiện</a>
                                                 @else 
                                                     <a href="{{ route('admin.menu.active', $menu->id) }}" class="label label-default">Ẩn</a>
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 @if ($menu->mn_hot == 1)
                                                     <a href="{{ route('admin.menu.hot', $menu->id) }}" class="label label-info">Có</a>
                                                 @else 
                                                     <a href="{{ route('admin.menu.hot', $menu->id) }}" class="label label-default">Không</a>
                                                 @endif
                                             </td>
-                                            <td>{{  $menu->created_at }}</td>
-                                            <td>
+                                            <td style="vertical-align: middle">
                                                 <a href="{{ route('admin.menu.update', $menu->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Sửa</a>
                                                 <a href="{{  route('admin.menu.delete', $menu->id) }}" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Xóa</a>
                                             </td>
